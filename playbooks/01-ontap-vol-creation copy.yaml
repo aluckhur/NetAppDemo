@@ -4,7 +4,7 @@
     - netapp.ontap
   name: Volume Action
   vars:
-   vserver: nltl-fas8200b-02
+    vserver: nltl-fas8200b-02
     aggr: n2_SAS
     vol_name: ansibleVol_test
   tasks:
