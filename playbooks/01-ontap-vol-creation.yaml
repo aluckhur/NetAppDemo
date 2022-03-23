@@ -8,8 +8,8 @@
    username: admin
    password: one4all+1
    vserver: nltl-fas8200b-02
-    aggr: n2_SAS
-    vol_name: ansibleVol_test
+   aggr: n2_SAS
+   vol_name: ansibleVol_test
   tasks:
 - name: Volume Create
     na_ontap_volume:
