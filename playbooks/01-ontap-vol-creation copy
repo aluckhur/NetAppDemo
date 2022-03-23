@@ -4,9 +4,6 @@
     - netapp.ontap
   name: Volume Action
   vars:
-   hostname: 10.64.32.61
-   username: admin
-   password: one4all+1
    vserver: nltl-fas8200b-02
     aggr: n2_SAS
     vol_name: ansibleVol_test
