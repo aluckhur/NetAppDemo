@@ -24,3 +24,6 @@
       hostname: “{{ hostname }}”
       username: “{{ username }}”
       password: “{{ password }}”
+      https: true
+      validate: false
+      
