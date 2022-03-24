@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: 10.64.32.61
   collections:
     - netapp.ontap
   name: Volume Action
