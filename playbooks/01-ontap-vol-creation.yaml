@@ -3,27 +3,19 @@
   collections:
     - netapp.ontap
   name: Volume Action
-  vars:
-   hostname: 10.64.32.61
-   username: admin
-   password: one4all+1
-   vserver: nltl-fas8200b-02
-   aggr: n2_SAS
-   vol_name: ansibleVol_test
   tasks:
   - name: Volume Create
     na_ontap_volume:
       state: present
-      name: “{{ vol_name }}”
-      vserver: “{{ vserver }}”
-      aggregate_name: “{{ aggr }}”
+      name: “ansiblevol1”
+      vserver: “nltl-fas8200b-02”
+      aggregate_name: “n2_SAS”
       size: 10
       size_unit: gb
       policy: default
       junction_path: “/{{ vol_name }}”
-      hostname: “{{ hostname }}”
-      username: “{{ username }}”
-      password: “{{ password }}”
+      hostname: "10.64.32.61”
+      username: "admin"
+      password: "one4all+1"
       https: true
       validate: false
-      
