@@ -7,13 +7,13 @@
   - name: Volume Create
     na_ontap_volume:
       state: present
-      name: “ansiblevol1”
-      vserver: “nltl-fas8200b-02”
-      aggregate_name: “n2_SAS”
+      name: ansiblevol1
+      vserver: nltl-fas8200b-02
+      aggregate_name: n2_SAS
       size: 10
       size_unit: gb
       policy: default
-      junction_path: “/{{ vol_name }}”
+      junction_path: “/ansiblevol1”
       hostname: "10.64.32.61”
       username: "admin"
       password: "one4all+1"
