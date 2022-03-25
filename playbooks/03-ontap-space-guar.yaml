@@ -6,7 +6,6 @@
   tasks:
   - name: Volume space guarantee
     na_ontap_volume:
-      state: prsent
       name: ansiblevol1
       vserver: nltl_cifs_marks
       aggregate_name: nltl_fas8200_01_SAS_1
