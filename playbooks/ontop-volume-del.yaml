@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+  name: Volume Action
+  tasks:
+  - name: Volume Delete
+    na_ontap_volume:
+      state: absent
+      name: ansiblevol1
+      vserver: nltl_cifs_marks
+      aggregate_name: nltl_fas8200_01_SAS_1
+      hostname: "10.64.32.30"
+      username: "admin"
+      password: "one4all+1"
