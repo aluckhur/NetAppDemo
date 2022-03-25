@@ -13,5 +13,5 @@
       hostname: "10.64.32.30"
       username: "admin"
       password: "one4all+1"
-      ttps: true
+      https: true
       validate_certs: false
