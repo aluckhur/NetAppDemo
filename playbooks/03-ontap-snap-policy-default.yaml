@@ -4,12 +4,12 @@
     - netapp.ontap
   name: Volume Action
   tasks:
-  - name: Volume space guarantee
+  - name: Snap shot Policy
     na_ontap_volume:
       name: ansiblevol1
       vserver: nltl_cifs_marks
       aggregate_name: nltl_fas8200_01_SAS_1
-      space_guarantee: volume
+      snapshot_policy: default
       hostname: "10.64.32.30"
       username: "admin"
       password: "one4all+1"
