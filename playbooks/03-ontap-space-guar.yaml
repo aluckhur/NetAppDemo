@@ -4,13 +4,13 @@
     - netapp.ontap
   name: Volume Action
   tasks:
-  - name: Volume Delete
+  - name: Volume space guarantee
     na_ontap_volume:
-      state: absent
+      state: prsent
       name: ansiblevol1
       vserver: nltl_cifs_marks
       aggregate_name: nltl_fas8200_01_SAS_1
-      comment: delete by ansible
+      space_guarantee: volume
       hostname: "10.64.32.30"
       username: "admin"
       password: "one4all+1"
