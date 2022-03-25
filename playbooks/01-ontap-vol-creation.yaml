@@ -1,5 +1,5 @@
 ---
-- hosts: 10.64.32.61
+- hosts: localhost
   collections:
     - netapp.ontap
   name: Volume Action
@@ -8,14 +8,12 @@
     na_ontap_volume:
       state: present
       name: ansiblevol1
-      vserver: nltl-fas8200b-02
-      aggregate_name: n2_SAS
+      vserver: nltl_cifs_marks
+      aggregate_name: nltl_fas8200_01_SAS_1
       size: 10
       size_unit: gb
-      policy: default
-      junction_path: “/ansiblevol1”
-      hostname: "10.64.32.61”
+      hostname: "10.64.32.30"
       username: "admin"
       password: "one4all+1"
       https: true
-      validate: false
+      validate_certs: false
