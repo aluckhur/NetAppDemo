@@ -7,8 +7,9 @@
     hostname: 10.64.32.30
     username: admin
     password: one4all+1
-  tasks:- name: Create SVM
-  netapp.ontap.na_ontap_svm:
+  tasks:
+  - name: Create SVM
+    netapp.ontap.na_ontap_svm:
     state: present
     name: ansibleVServer
     root_volume: vol1
