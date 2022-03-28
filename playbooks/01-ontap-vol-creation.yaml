@@ -21,16 +21,16 @@
 
   - name: Create lun
     na_ontap_lun:
-    state: present
-    name: ansibleLUN
-    flexvol_name: ansiblevol1
-    vserver: nltl_cifs_marks
-    size: 5
-    size_unit: gb
-    os_type: linux
-    space_reserve: True
-    hostname: "10.64.32.30"
-    username: "admin"
-    password: "one4all+1"
-    https: true
-    validate_certs: false
+      state: present
+      name: ansibleLUN
+      flexvol_name: ansiblevol1
+      vserver: nltl_cifs_marks
+      size: 5
+      size_unit: gb
+      os_type: linux
+      space_reserve: True
+      hostname: "10.64.32.30"
+      username: "admin"
+      password: "one4all+1"
+      https: true
+      validate_certs: false
