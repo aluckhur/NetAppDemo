@@ -10,11 +10,11 @@
   tasks:
   - name: Create SVM
     netapp.ontap.na_ontap_svm:
-    state: present
-    name: ansibleVServer
-    root_volume: vol1
-    root_volume_aggregate: nltl_fas8200_01_SAS_1
-    root_volume_security_style: mixed
-    hostname: "{{ netapp_hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
+      state: present
+      name: ansibleVServer
+      root_volume: vol1
+      root_volume_aggregate: nltl_fas8200_01_SAS_1
+      root_volume_security_style: mixed
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
