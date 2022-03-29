@@ -19,15 +19,15 @@
       private: yes
 
   vars:
+    name: ansiblevol1
+    vserver: nltl_cifs_marks
+    aggregate_name: nltl_fas8200_01_SAS_1 
     login: &login
       hostname: "{{ cluster }}"
       username: "{{ username }}"
       password: "{{ password }}"
       https: true
       validate_certs: false  
-    name: ansiblevol1
-    vserver: nltl_cifs_marks
-    aggregate_name: nltl_fas8200_01_SAS_1 
   
   tasks:       
   - name: Volume Create
