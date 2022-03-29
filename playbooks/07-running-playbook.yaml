@@ -25,7 +25,7 @@
       password: "{{ password }}"
       https: true
       validate_certs: false
-      vserver: ansibleVServer
+      vserver: nltl_cifs_marks
       aggr: nltl_fas8200_01_SAS_1
       vol_name: ansiblevol1
 
