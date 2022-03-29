@@ -24,16 +24,15 @@
       username: "{{ username }}"
       password: "{{ password }}"
       https: true
-      validate_certs: false
-      aggr: nltl_fas8200_01_SAS_1
-
+      validate_certs: false  
+  
   tasks:       
   - name: Volume Create
     na_ontap_volume:
       state: present
       name: ansiblevol1
       vserver: nltl_cifs_marks
-      aggregate_name: "{{ aggr }}"
+      aggregate_name: nltl_fas8200_01_SAS_1  
       size: 10
       size_unit: gb
       <<: *login
