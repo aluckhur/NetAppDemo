@@ -38,3 +38,6 @@
       size: 10
       size_unit: gb
       <<: *login
+
+  - debug:
+      msg: "{{ ontap_info.ontap_info }}
