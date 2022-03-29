@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+  name: Volume Action
+  vars:
+    hostname: 10.64.32.30
+    username: admin
+    password: one4all+1
+    vserver: nltl_cifs_marks
+    aggregate_name: nltl_fas8200_01_SAS_1
+  tasks:
+  - name: Volume Create
+    na_ontap_volume:
+      state: present
+      name: ansiblevol1
+      vserver: “{{ vserver }}”
+      aggregate_name: “{{ aggr }}”
+      size: 10
+      size_unit: gb
+      comment: ansible created
+      hostname: “{{ hostname }}”
+      username: “{{ username }}”
+      password: “{{ password }}”
+      https: true
+      validate_certs: false
