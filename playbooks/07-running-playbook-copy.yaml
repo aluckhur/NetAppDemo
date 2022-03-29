@@ -38,4 +38,4 @@
       aggregate_name: "{{ aggr }}"
       size: 10
       size_unit: gb
-      comment: ansible created
+      <<: *login
