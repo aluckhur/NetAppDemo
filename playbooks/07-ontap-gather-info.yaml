@@ -1,10 +1,8 @@
 ---
 - hosts: localhost
-  name: Get ONTAP Info
-  gather_facts: false
-
   collections:
     - netapp.ontap
+  name: Volume Action
 
   vars_prompt:
 
