@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+  name: Volume Action
+  vars_prompt:
+    - name: "cluster"
+      prompt: "Please enter the cluster name or IP Address"
+      private: no
+    - name: "username"
+      prompt: "Please enter the username"
+      private: no
+    - name: "password"
+      prompt: "Please enter password"
+      private: yes
+  vars:
+    login: &login
+      hostname: "{{ cluster }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+      vserver: nltl_cifs_marks
+      aggr: nltl_fas8200_01_SAS_1
+      vol_name: ansiblevol1
+
+  - name: Volume Create
+    na_ontap_volume:
+      state: present
+      name: "{{ vol_name }}"
+      vserver: "{{ vserver }}"
+      aggregate_name: "{{ aggr }}"
+      size: 10
+      size_unit: gb
+      <<: *login
