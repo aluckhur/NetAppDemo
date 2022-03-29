@@ -29,13 +29,13 @@
       aggr: nltl_fas8200_01_SAS_1
       vol_name: ansiblevol1
 
-  tasks:
-  - name: Volume Create
-    na_ontap_volume:
-      state: present
-      name: "{{ vol_name }}"
-      vserver: "{{ vserver }}"
-      aggregate_name: "{{ aggr }}"
-      size: 10
-      size_unit: gb
-      <<: *login
+tasks:
+- name: Volume Create
+  na_ontap_volume:
+    state: present
+    name: "{{ vol_name }}"
+    vserver: "{{ vserver }}"
+    aggregate_name: "{{ aggr }}"
+    size: 10
+    size_unit: gb
+    <<: *login
