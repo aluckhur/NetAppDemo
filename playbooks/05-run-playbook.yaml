@@ -11,7 +11,7 @@
   - name: Volume Create
     na_ontap_volume:
       state: present
-      name: "{{vol_name}}"
+      name: "{{ vol_name }}"
       vserver: "{{ vserver }}"
       aggregate_name: "{{ aggr }}"
       size: 10
