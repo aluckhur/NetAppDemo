@@ -29,16 +29,6 @@
       aggr: nltl_fas8200_01_SAS_1
       vol_name: ansiblevol1
 
-  tasks:
-  - name: Create SVM
-    netapp.ontap.na_ontap_svm:
-      state: present
-      name: ansibleVServer
-      root_volume: vol1
-      root_volume_aggregate: "{{ aggr }}"
-      root_volume_security_style: mixed
-      <<: *login
-
   - name: Volume Create
     na_ontap_volume:
       state: present
