@@ -6,7 +6,7 @@
 
   vars_prompt:
 
-    - name: "hostname"
+    - name: "cluster"
       prompt: "Please enter the cluster name or IP Address"
       private: no
 
@@ -20,7 +20,7 @@
 
   vars:
     login: &login
-      hostname: "{{ hostname }}"
+      hostname: "{{ cluster }}"
       username: "{{ username }}"
       password: "{{ password }}"
       https: true
