@@ -8,8 +8,6 @@
     vserver: nltl_cifs_marks
     aggr: nltl_fas8200_01_SAS_1
     state: present 
-    https: true
-    validate_certs: false
   vars_prompt: 
   - name: "password" 
     prompt: "Password:" 
@@ -26,3 +24,5 @@
       hostname: "{{ hostname }}" 
       username: "{{ username }}" 
       password: "{{ password }}" 
+      https: true
+      validate_certs: false
