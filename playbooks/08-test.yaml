@@ -35,6 +35,8 @@
       hostname: "{{ hostname }}" 
       username: "{{ username }}" 
       password: "{{ password }}" 
+      https: true
+      validate_certs: false
   - name: Setup rules 
     na_ontap_export_policy_rule: 
       state: "{{ state }}" 
@@ -47,6 +49,8 @@
       hostname: "{{ hostname }}" 
       username: "{{ username }}" 
       password: "{{ password }}" 
+      https: true
+      validate_certs: false
 - hosts: client 
   tasks: 
   - name: Update fstab file 
