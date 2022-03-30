@@ -4,7 +4,7 @@
   vars: 
     hostname: "10.64.32.30" 
     username: "admin" 
-    volname: ansiblevol1
+    vol_name: ansiblevol1
     vserver: nltl_cifs_marks
     aggr: nltl_fas8200_01_SAS_1
     state: present 
