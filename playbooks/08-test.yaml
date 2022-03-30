@@ -8,6 +8,7 @@
     vserver: nltl_cifs_marks
     aggr: nltl_fas8200_01_SAS_1
     state: present 
+    policy: ansiblePolicy
   vars_prompt: 
   - name: "password" 
     prompt: "Password:" 
@@ -26,3 +27,39 @@
       password: "{{ password }}" 
       https: true
       validate_certs: false
+  - name: Create Policy 
+    na_ontap_export_policy: 
+      state: "{{ state }}" 
+      name: "{{ policy }}" 
+      vserver: "{{ vserver }}" 
+      hostname: "{{ hostname }}" 
+      username: "{{ username }}" 
+      password: "{{ password }}" 
+  - name: Setup rules 
+    na_ontap_export_policy_rule: 
+      state: "{{ state }}" 
+      policy_name: "{{ policy }}" 
+      vserver: "{{ vserver }}" 
+      client_match: 0.0.0.0/0  
+      ro_rule: sys 
+      rw_rule: sys 
+      super_user_security: sys 
+      hostname: "{{ hostname }}" 
+      username: "{{ username }}" 
+      password: "{{ password }}" 
+- hosts: client 
+  tasks: 
+  - name: Update fstab file 
+    lineinfile: 
+      path: /etc/fstab 
+      line: "10.64.28.58:/{{ vol_name }} /mnt/ontap nfs defaults 0 0" 
+  - name: Verify mount directory exists 
+    file: 
+      path: /mnt/ontap 
+      state: directory 
+  - name: Mount nfs export 
+    mount: 
+      state: "{{ state }}" 
+      path: /mnt/ontap 
+      src: "10.64.28.58:/{{ vol_name }}" 
+      fstype: nfs
