@@ -32,7 +32,7 @@
 
   - name: Get ONTAP info
     na_ontap_info:
-      gather_subset: all
+      gather_subset: aggregate_
       <<: *login
     register: ontap_info
 
