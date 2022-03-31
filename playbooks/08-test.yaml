@@ -51,7 +51,7 @@
       password: "{{ password }}" 
       https: true
       validate_certs: false
-- hosts: localhost
+- hosts: 10.64.28.58
   vars:
     vol_name: ansiblevol1
     state: present
