@@ -52,6 +52,8 @@
       https: true
       validate_certs: false
 - hosts: localhost
+  vars:
+    vol_name: ansiblevol1
   tasks: 
   - name: Update fstab file 
     lineinfile: 
