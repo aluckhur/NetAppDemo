@@ -61,7 +61,7 @@
   - name: Update fstab file 
     lineinfile: 
       path: /etc/fstab 
-      line: "10.64.28.58:/{{ vol_name }} /mnt/ontap nfs defaults 0 0" 
+      line: "10.64.34.88:/{{ vol_name }} /mnt/ontap nfs defaults 0 0" 
   - name: Verify mount directory exists 
     file: 
       path: /mnt/ontap 
@@ -70,5 +70,5 @@
     mount: 
       state: "{{ state }}" 
       path: /mnt/ontap 
-      src: "10.64.28.58:/{{ vol_name }}" 
+      src: "10.64.34.88:/{{ vol_name }}" 
       fstype: nfs
