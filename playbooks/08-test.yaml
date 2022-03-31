@@ -13,6 +13,16 @@
   - name: "password" 
     prompt: "Password:" 
   tasks: 
+  - name: Create Policy 
+    na_ontap_export_policy: 
+      state: "{{ state }}" 
+      name: "{{ policy }}" 
+      vserver: "{{ vserver }}" 
+      hostname: "{{ hostname }}" 
+      username: "{{ username }}" 
+      password: "{{ password }}" 
+      https: true
+      validate_certs: false
   - name: Volume Create
     na_ontap_volume:
       state: "{{ state }}"
@@ -22,17 +32,8 @@
       size: 10
       size_unit: gb
       junction_path: "/{{ vol_name }}" 
+      policy: "{{ policy }}"
       comment: ansible created volume
-      hostname: "{{ hostname }}" 
-      username: "{{ username }}" 
-      password: "{{ password }}" 
-      https: true
-      validate_certs: false
-  - name: Create Policy 
-    na_ontap_export_policy: 
-      state: "{{ state }}" 
-      name: "{{ policy }}" 
-      vserver: "{{ vserver }}" 
       hostname: "{{ hostname }}" 
       username: "{{ username }}" 
       password: "{{ password }}" 
