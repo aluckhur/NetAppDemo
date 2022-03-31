@@ -21,6 +21,7 @@
       aggregate_name: "{{ aggr }}"
       size: 10
       size_unit: gb
+      junction_path: "/{{ vol_name }}" 
       comment: ansible created volume
       hostname: "{{ hostname }}" 
       username: "{{ username }}" 
