@@ -51,7 +51,7 @@
       password: "{{ password }}" 
       https: true
       validate_certs: false
-- hosts: client 
+- hosts: 10.64.28.58
   tasks: 
   - name: Update fstab file 
     lineinfile: 
