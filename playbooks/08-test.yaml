@@ -54,6 +54,7 @@
 - hosts: localhost
   vars:
     vol_name: ansiblevol1
+    state: present
   tasks: 
   - name: Update fstab file 
     lineinfile: 
