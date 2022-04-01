@@ -72,4 +72,4 @@
       path: /mnt/ontap 
       src: "10.64.34.88:/{{ vol_name }}" 
       fstype: nfs
-      opts: vers3
+      opts: vers=3
