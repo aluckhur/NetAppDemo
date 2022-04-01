@@ -56,7 +56,7 @@
 - hosts: 10.64.28.58
   vars:
     vol_name: ansiblevol1
-    state: present
+    state: mounted
   tasks: 
   - name: Update fstab file 
     lineinfile: 
