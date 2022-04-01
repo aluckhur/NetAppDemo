@@ -71,4 +71,4 @@
       state: "{{ state }}" 
       path: /mnt/ontap 
       src: "10.64.34.88:/{{ vol_name }}" 
-      fstype: nfsv3
+      fstype: nfs
