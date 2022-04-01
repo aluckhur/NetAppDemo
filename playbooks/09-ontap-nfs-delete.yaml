@@ -65,7 +65,7 @@
   - name: Verify mount directory exists
     file:
       path: /mnt/ontap
-      state: directory
+      state: "{{ state }}"
   - name: Mount nfs export
     mount:
       state: "{{ state }}"
