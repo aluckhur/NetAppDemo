@@ -1,0 +1,74 @@
+---
+- hosts: localhost
+  name: Setup ONTAP
+  vars:
+    hostname: "10.64.32.30"
+    username: "admin"
+    vol_name: ansiblevol1
+    vserver: nltl_cifs_marks
+    aggr: nltl_fas8200_01_SAS_1
+    state: absent
+    policy: ansiblePolicy
+  vars_prompt:
+  - name: "password"
+    prompt: "Password:"
+  tasks:
+  - name: Volume Create
+    na_ontap_volume:
+      state: "{{ state }}"
+      name: "{{ vol_name }}"
+      vserver: "{{ vserver }}"
+      aggregate_name: "{{ aggr }}"
+      size: 10
+      size_unit: gb
+      junction_path: "/{{ vol_name }}"
+      policy: "{{ policy }}"
+      comment: ansible created volume
+      hostname: "{{ hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+  - name: Create Policy
+    na_ontap_export_policy:
+      state: "{{ state }}"
+      name: "{{ policy }}"
+      vserver: "{{ vserver }}"
+      hostname: "{{ hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+  - name: Setup rules
+    na_ontap_export_policy_rule:
+      state: "{{ state }}"
+      policy_name: "{{ policy }}"
+      vserver: "{{ vserver }}"
+      client_match: 0.0.0.0/0
+      ro_rule: sys
+      rw_rule: sys
+      super_user_security: sys
+      hostname: "{{ hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+- hosts: 10.64.28.58
+  vars:
+    vol_name: ansiblevol1
+    state: absent
+  tasks:
+  - name: Update fstab file
+    lineinfile:
+      path: /etc/fstab
+      line: "10.64.34.88:/{{ vol_name }} /mnt/ontap nfs defaults 0 0"
+  - name: Verify mount directory exists
+    file:
+      path: /mnt/ontap
+      state: directory
+  - name: Mount nfs export
+    mount:
+      state: "{{ state }}"
+      path: /mnt/ontap
+      src: "10.64.34.88:/{{ vol_name }}"
+      fstype: nfs
