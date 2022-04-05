@@ -31,12 +31,6 @@
   tasks:    
   - name: Get Volume Info
     na_ontap_rest_info:
-      hostname:       "cluster"
-      username:       "username"
-      password:       "password"
-      https:          true
-      validate_certs: false
-      state: info
       gather_subset:
         - volume_info
       parameters:
