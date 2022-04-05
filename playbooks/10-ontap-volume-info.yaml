@@ -1,0 +1,53 @@
+---
+- hosts: localhost
+  name: Get ONTAP Info
+  gather_facts: false
+
+  collections:
+    - netapp.ontap
+
+  vars_prompt:
+
+    - name: "cluster"
+      prompt: "Please enter the cluster name or IP Address"
+      private: no
+
+    - name: "username"
+      prompt: "Please enter the username"
+      private: no
+
+    - name: "password"
+      prompt: "Please enter password"
+      private: yes
+
+  vars:
+    login: &login
+      hostname: "{{ cluster }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+
+  tasks:    
+  - name: Get Volume Info
+    na_ontap_rest_info:
+      hostname:       "cluster"
+      username:       "username"
+      password:       "password"
+      https:          true
+      validate_certs: false
+      state: info
+      gather_subset:
+        - volume_info
+      parameters:
+        name:        "ansiblevol1"
+        svm.name:    "nltl_cifs_marks"
+      fields:
+        - '*'
+    register: ontap_volumes
+  
+  - name: Print volume details
+    debug:
+      msg:
+        - "{{ ontap_volumes.ontap_info['storage/volumes']\
+              .records }}"
