@@ -1,0 +1,58 @@
+cluster_name: cluster1
+
+netapp_hostname: 10.64.30.19
+netapp_username: admin
+netapp_password: netapp123
+
+license_codes:
+  
+
+Aggregates_Setup:
+  - { name: cluster1_01_root, node: cluster1_01, disk_count: 3, max_raid: 3 }
+  - { name: cluster1_01_data, node: cluster1_01, disk_count: 18, max_raid: 18 }
+  - { name: cluster1_02_data, node: cluster1_02, disk_count: 18, max_raid: 18 }
+  - { name: cluster1_02_root, node: cluster1_02, disk_count: 3, max_raid: 3 }
+
+
+Network_Port_Setup:
+  - { node: cluster1_01, mtu: 1500 }
+
+
+IF_Group_Configuration:
+  
+
+VLAN_Configuration:
+  
+
+Broadcast_Domain_Configuration:
+  
+
+Data_SVMs:
+  
+ 
+NFS_Exports:
+  
+  
+Network_Interface_SVM_LIF_Setup:
+  
+
+Configure_DNS_for_SVM:
+  
+
+CIFS_Server_Create:
+   
+
+Volume_Setup:
+  
+
+CIFS_Shares:
+  
+
+iGroups:
+  
+
+LUNS:
+  
+
+LUN_Mapping:
+  
