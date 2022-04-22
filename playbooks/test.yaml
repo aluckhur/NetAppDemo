@@ -33,8 +33,10 @@
 
   - name: Get ONTAP info
     na_ontap_info:
-      state: info
       gather_subset:
         - ontap_system_version
       <<: *login
     register: ontap_info
+
+  - debug:
+      msg: "{{ ontap_info.ontap_info }}"
