@@ -2,6 +2,7 @@
 - hosts: localhost
   name: Get ONTAP Info
   gather_facts: false
+   
 
   collections:
     - netapp.ontap
@@ -31,9 +32,10 @@
   tasks:
 
   - name: Get ONTAP info
-    na_ontap_info:
+    na_ontap_gather_facts:
+      state: info
       gather_subset:
-        - ontapi_version
+        - ontap_version
       <<: *login
     register: ontap_info
 
