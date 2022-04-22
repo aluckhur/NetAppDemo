@@ -33,7 +33,7 @@
   - name: Get ONTAP info
     na_ontap_info:
       gather_subset:
-        - ontap_version
+        - ontapi_version
       <<: *login
     register: ontap_info
 
