@@ -10,7 +10,7 @@
       name: ansiblevol1
       vserver: nltl_cifs_marks
       aggregate_name: nltl_fas8200_01_SAS_1
-      size: 20
+      size: 5
       size_unit: gb
       comment: ansible created volume
       hostname: "10.64.32.30"
