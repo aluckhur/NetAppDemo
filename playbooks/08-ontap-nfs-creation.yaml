@@ -29,7 +29,7 @@
       name: "{{ vol_name }}"
       vserver: "{{ vserver }}"
       aggregate_name: "{{ aggr }}"
-      size: 10
+      size: 20
       size_unit: gb
       junction_path: "/{{ vol_name }}" 
       policy: "{{ policy }}"
